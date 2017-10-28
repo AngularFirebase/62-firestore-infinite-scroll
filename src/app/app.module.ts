@@ -9,10 +9,15 @@ import { environment } from '../environments/environment';
 
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { ScrollableDirective } from './scrollable.directive';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { PaginationService } from './pagination.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScrollableDirective,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [PaginationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
