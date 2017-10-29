@@ -1,13 +1,14 @@
 
 <div class="content" scrollable (scrollPosition)="scrollHandler($event)">
 
+    <p class="tag is-warning" *ngIf="page.done | async">I ran out of boats!</p>
+    <loading-spinner  *ngIf="page.loading | async"></loading-spinner>
+
   <div *ngFor="let boat of page.data | async">
     <h1>Built in {{ boat.year }}</h1>
     <img [src]="boat.url">
   </div>
 
-  <p class="tag is-warning" *ngIf="page.done | async">I ran out of boats!</p>
-  <loading-spinner  *ngIf="page.loading | async"></loading-spinner>
 </div>
 
 
